@@ -40,7 +40,12 @@ class MessageApiController extends Controller
                 "mensaje" => "Your message has been sent successfully",
                 "codigo" => 201
             ],
-            'data' => $message
+            'data' => [
+                'name'=> $message->name,
+                'email'=> $message->email,
+                'phone'=> $message->phone,
+                'message'=> $message->message
+            ]
         ],201);
     }
 }
