@@ -1,20 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Producto;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ProductApiController;
 
 class ProductApiController extends Controller
 {
-    public function show(Producto $producto){
+    public function show(Product $product){
         return [
             'meta' => [
-                'path' => route('api.productos.show',$producto)
+                'path' => route('api.products.show',$product)
             ],
             'data' => [
-                    'name'=> $producto->name,
-                    'description'=> $producto->description
+                    'name'=> $product->name,
+                    'description'=> $product->description
             ]
         ];
     }

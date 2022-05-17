@@ -7,6 +7,6 @@ use App\Http\Controllers\ProductApiController;
 
 
 
-Route::get('/productos/{producto}',[ProductApiController::class,'show'])->name('api.productos.show');
+Route::get('/products/{product}',[ProductApiController::class,'show'])->name('api.products.show');
 
 Route::post('/messages',[MessageApiController::class,'store'])->name('api.messages.store');

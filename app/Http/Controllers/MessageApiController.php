@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Message;
+use App\Mail\MessageContact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\MessageApiController;
 
@@ -10,7 +12,7 @@ class MessageApiController extends Controller
 {
     public function store(){
 
-        /*VALIDA LOS CAMPOS*/
+        /*Validate the fields */
         $validator = Validator::make(request()->all(),[
             'name'=> 'required',
             'email'=> 'required|email',
@@ -18,7 +20,7 @@ class MessageApiController extends Controller
             'message'=> 'required'
         ]);
 
-        /* RESPONDE SI HAY ERRORES*/
+        /* Error response */
         if($validator->fails()){
             return response([
                 'error' => true,
@@ -26,7 +28,7 @@ class MessageApiController extends Controller
             ],422);
         };
 
-        /* CREA EL MENSAJE*/
+        /* Create the message */
         $message = Message::create([
             'name' => request() ->name,
             'email' => request() ->email,
@@ -34,7 +36,11 @@ class MessageApiController extends Controller
             'message' => request() ->message
         ]);
 
-        /* RESPONDE CON EL MENSAJE ENVIADO*/    
+        /* Send the mail */
+
+        Mail::to('leandrodls@gmail.com')->send(new MessageContact($message));
+
+        /* Success message */    
         return response([
             "meta" => [
                 "mensaje" => "Your message has been sent successfully",
