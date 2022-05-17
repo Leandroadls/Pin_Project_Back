@@ -10,7 +10,7 @@ class MessageApiController extends Controller
 {
     public function store(){
 
-        /*Valida los campos*/
+        /*VALIDA LOS CAMPOS*/
         $validator = Validator::make(request()->all(),[
             'name'=> 'required',
             'email'=> 'required|email',
