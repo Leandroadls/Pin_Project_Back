@@ -1,8 +1,8 @@
 <?php
 namespace Database\Seeders;
 use Illuminate\Database\Seeder;
-use App\Models\Producto;
-class ProductosTableSeeder extends Seeder
+use App\Models\Product;
+class ProductsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,20 +13,20 @@ class ProductosTableSeeder extends Seeder
     {
         //
         //This resets the table, deleting all the data everytime the function is called.
-        Producto::truncate();
-        Producto::create([
+        Product::truncate();
+        Product::create([
             'name' => 'Producto1',
             'description' => 'Descripcion producto1',
         ]);
-        Producto::create([
+        Product::create([
             'name' => 'Producto2',
             'description' => 'Descripcion producto2',
         ]);
-        Producto::create([
+        Product::create([
             'name' => 'Producto3',
             'description' => 'Descripcion producto3',
         ]);
-        Producto::create([
+        Product::create([
             'name' => 'Producto4',
             'description' => 'Descripcion producto4',
         ]);
