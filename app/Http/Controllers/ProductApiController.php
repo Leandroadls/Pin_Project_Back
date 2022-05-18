@@ -7,6 +7,12 @@ use App\Http\Controllers\ProductApiController;
 
 class ProductApiController extends Controller
 {
+
+    public function index(){
+        $products = Product::get()->toJson(JSON_PRETTY_PRINT);
+        return response($products, 200);
+    }
+
     public function show(Product $product){
         return [
             'meta' => [
@@ -18,4 +24,6 @@ class ProductApiController extends Controller
             ]
         ];
     }
+
+
 }
