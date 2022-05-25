@@ -15,20 +15,20 @@ class ProductsTableSeeder extends Seeder
         //This resets the table, deleting all the data everytime the function is called.
         Product::truncate();
         Product::create([
-            'name' => 'Producto1',
-            'description' => 'Descripcion producto1',
+            'name' => 'Buenos Aires',
+            'description' => 'Fin de semana',
         ]);
         Product::create([
-            'name' => 'Producto2',
-            'description' => 'Descripcion producto2',
+            'name' => 'Mendoza',
+            'description' => 'Bodegas',
         ]);
         Product::create([
-            'name' => 'Producto3',
-            'description' => 'Descripcion producto3',
+            'name' => 'Cordoba',
+            'description' => 'Sierras',
         ]);
         Product::create([
-            'name' => 'Producto4',
-            'description' => 'Descripcion producto4',
+            'name' => 'San Luis',
+            'description' => 'Cabañas',
         ]);
     }
 }
